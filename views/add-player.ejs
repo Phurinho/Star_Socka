@@ -1,0 +1,57 @@
+<%- include('partials/header.ejs')  %> 
+<%- include('partials/navbar.ejs')  %> 
+    <div class="container">
+        <div class="py-3">
+            <a href="/" class="btn btn-primary mb-3">Go back</a>
+            <h3>Add Player</h3>
+            <hr>
+            <% if(message != ' '){%>
+                <p class="text-center text-danger"><%= message %></p>
+           <% } %>  
+           <form action="" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="first_name" class="form-label">First Name</label>
+                <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+            </div>
+           
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Last Name</label>
+                <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+            </div>
+          
+            <div class="mb-3">
+                <label for="username" class="form-label">User Name</label>
+                <input type="text" class="form-control" name="user_name" placeholder="User Name" required>
+            </div>
+          
+            <div class="mb-3">
+                <label for="number" class="form-label">Number</label>
+                <input type="number" class="form-control" name="number" placeholder="Number" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="position" class="form-label">Position</label>
+                <select name="position" class="form-select" required>
+                    <option selected disabled>Choose positon</option>
+                    <option>Goalkeeper</option>
+                    <option>Center Back</option>
+                    <option>Right Back</option>
+                    <option>Left Back</option>
+                    <option>Defensive Midfielder</option>
+                    <option>Center Midfielder</option>
+                    <option>Attacking Midfielder</option>
+                    <option>Right wing Forward</option>
+                    <option>Left wing Forward</option>
+                    <option>Striker</option>
+                </select>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="player image">Player image</label>
+                <input type="file" class="form-control" name="image" requiered>
+            </div>
+            <button type="submit" class="btn btn-success">Add Player</button>
+           </form>
+        </div>
+    </div>
+    
+<%- include('partials/footer.ejs')  %> 
