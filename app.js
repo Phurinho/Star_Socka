@@ -3,7 +3,6 @@ const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const path = require("path");
 const mysql = require("mysql2");
-const port = 3000;
 const app = express();
 require('dotenv').config();
 
@@ -30,7 +29,7 @@ db.connect((err)=>{
 global.db = db;
 
 //Configure middleware
-app.set("port", process.env.port); //set express to use this port
+ 
 app.set("views", __dirname + "/views"); //set express to look in this folder
 app.set("view engine", "ejs"); //configure template engine
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,6 +41,6 @@ app.use(fileUpload()); //configuer file upload
 app.use("/", homeRoutes);
 app.use('/player',playerRoutes);
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
 });
